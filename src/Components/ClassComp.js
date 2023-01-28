@@ -4,7 +4,8 @@ export class ClassComp extends Component {
   constructor() {
     super();
     this.state = {
-      number: 0
+      number: 0,
+      number2: 10,
     };
   }
 
@@ -29,12 +30,19 @@ export class ClassComp extends Component {
     });
   }
 
+  increaseNumber2() {
+    this.setState({
+      number2: this.state.number2 + 5
+    });
+  }
+
   render() {
     console.log("render");
     return (
       <div>
         ClassComp
         <button onClick={() => this.increaseNumber(2)}>Inc</button>
+        <button onClick={() => this.increaseNumber2()}>Inc2</button>
         <button
           disabled={this.state.number <= 0}
           onClick={() => this.decreaseNumber(1)}
@@ -42,6 +50,7 @@ export class ClassComp extends Component {
           Dec
         </button>
         <h3>{this.state.number}</h3>
+        <h3>{this.state.number2}</h3>
       </div>
     );
   }

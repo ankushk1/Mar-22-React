@@ -1,5 +1,4 @@
 import React from "react";
-import SecondComp from "./secondComp";
 
 const variable = [1,2,3,4,5,6];
 

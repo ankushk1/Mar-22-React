@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 
-const FuncComponent = () => {
+const FuncComponent = (props) => {
+
+  console.log('FuncComponent---> ', props )
   const [number, setNumber] = useState(0);
   const [name, setName] = useState("Aman");
-
-  function increment() {}
-
-  const inc = function () {};
 
   const increaseNumber = (incrementer) => {
     console.log("increaseNumber called and previous state is: ", number);
