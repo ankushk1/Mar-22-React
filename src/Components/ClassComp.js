@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 export class ClassComp extends Component {
   constructor() {
+    console.log('Constructor Called')
     super();
     this.state = {
       number: 0,
@@ -9,15 +10,42 @@ export class ClassComp extends Component {
     };
   }
 
+
+  // componentWillMount() {
+  //   console.log('componentWillMount called');
+  // }
+
+  componentDidMount() {
+    console.log('componentDidMount Called' )
+    this.increaseNumber(2)
+  }
+
+
+  shouldComponentUpdate( prevProps, prevState){
+    console.log(prevState)
+
+    // returns boolean
+    // if( state != somevalue) return false
+    return true
+  }
+
+  componentDidUpdate(){
+    console.log('componentDidUpdate Called');
+  }
+
+  componentWillUnmount() {
+    console.log('componentWillUnmount');
+  }
+
   increaseNumber(incrementer) {
     this.setState((prevState) => {
-      console.log(prevState); // this.state
+      // console.log(prevState); // this.state
       return {
         number: prevState.number + incrementer
       };
     });
     this.setState((prevState) => {
-      console.log(prevState); // this.state
+      // console.log(prevState); // this.state
       return {
         number: prevState.number + incrementer
       };
@@ -37,7 +65,7 @@ export class ClassComp extends Component {
   }
 
   render() {
-    console.log("render");
+    console.log("render called");
     return (
       <div>
         ClassComp
