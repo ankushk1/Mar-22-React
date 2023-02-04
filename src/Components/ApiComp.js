@@ -1,25 +1,32 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
 import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
 import Spinner from 'react-bootstrap/Spinner';
+import Items from "./Items";
 
 
 const ApiComp = () => {
+  const [filter, setFilter] = useState("products")
   const [apiData, setApiData] = useState([]);
 
   const fetchData = async () => {
-    const res = await fetch("https://dummyjson.com/products");
+    const res = await fetch(`https://dummyjson.com/${filter}`);
     const data = await res.json();
-    setApiData(data.products);
+    setApiData(filter === "products" ? data.products : data.users);
   };
 
+  console.log(apiData)
   useEffect(() => {
+    setApiData([])
     fetchData();
-  }, []);
+  }, [filter]);
 
   return (
     <div className="">
+     <div className="d-flex justify-content-center">
+     <Button variant="secondary me-5" onClick={() => setFilter("products")}>Products</Button>
+      <Button variant="warning" onClick={() => setFilter("users")}>Users</Button>
+     </div>
       <div className="fs-2">Products</div>
       <div className="mt-3 d-flex flex-wrap justify-content-around ">
         {apiData.length === 0 ? (
@@ -31,24 +38,9 @@ const ApiComp = () => {
             <Spinner animation="grow" variant="warning" />
           </div>
         ) : (
-          apiData.map((product) => (
-            <div className="my-3">
-              <Card style={{ width: "18rem", height: "30rem" }}>
-                <Card.Img variant="top" src={product?.thumbnail} height="180" />
-                <Card.Body>
-                  <Card.Title>
-                    {product?.title + " " + product?.brand}
-                  </Card.Title>
-                  <Card.Text>
-                    {product?.description.slice(0, 60) + "..."}
-                  </Card.Text>
-                  <Card.Text>
-                    <b className="fs-5">{product?.category}</b>
-                  </Card.Text>
-                  <Card.Text>${product?.price}</Card.Text>
-                  <Button variant="outline-primary">Buy Now</Button>
-                </Card.Body>
-              </Card>{" "}
+          apiData.map((elem, index) => (
+            <div className="my-3" key={index}>
+              <Items elem={elem}/>
             </div>
           ))
         )}

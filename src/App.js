@@ -10,6 +10,8 @@ import ComponentA from "./Components/Context/ComponentA";
 import { createContext } from "react";
 import FuncLC from "./Components/FuncLC";
 import ApiComp from "./Components/ApiComp";
+import FormComponent from "./Components/FormComponent";
+import ThemeToggle from "./Components/ThemeToggle";
 const name = "Sam";
 
 export const messageContext = createContext(null);
@@ -28,6 +30,8 @@ function App() {
       { mount && <FuncLC/>} */}
       {/* <FuncLC/> */}
       <ApiComp/>
+      {/* <FormComponent/> */}
+      {/* {<ThemeToggle/>} */}
     </div>
   );
 }
