@@ -12,6 +12,9 @@ import FuncLC from "./Components/FuncLC";
 import ApiComp from "./Components/ApiComp";
 import FormComponent from "./Components/FormComponent";
 import ThemeToggle from "./Components/ThemeToggle";
+import UseReducerHook from "./Components/Advanced Hooks/UseReducerHook";
+import UseMemoHook from "./Components/Advanced Hooks/UseMemoHook";
+import UseCallbackHook from "./Components/Advanced Hooks/UseCallbackHook";
 const name = "Sam";
 
 export const messageContext = createContext(null);
@@ -29,9 +32,12 @@ function App() {
       {/* <button onClick={() => setMount(!mount)}>Mount/Unmount</button>
       { mount && <FuncLC/>} */}
       {/* <FuncLC/> */}
-      <ApiComp/>
+      {/* <ApiComp/> */}
       {/* <FormComponent/> */}
       {/* {<ThemeToggle/>} */}
+      {/* <UseReducerHook/> */}
+      {/* <UseMemoHook/> */}
+      <UseCallbackHook/>
     </div>
   );
 }
