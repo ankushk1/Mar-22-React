@@ -15,6 +15,9 @@ import ThemeToggle from "./Components/ThemeToggle";
 import UseReducerHook from "./Components/Advanced Hooks/UseReducerHook";
 import UseMemoHook from "./Components/Advanced Hooks/UseMemoHook";
 import UseCallbackHook from "./Components/Advanced Hooks/UseCallbackHook";
+import Counter from "./Components/HOC/Counter";
+import Hover from "./Components/HOC/Hover";
+import Todo from "./Components/Todo";
 const name = "Sam";
 
 export const messageContext = createContext(null);
@@ -28,7 +31,6 @@ function App() {
       value={"Message from App.js"}>
         <ComponentA />
       </messageContext.Provider> */}
-
       {/* <button onClick={() => setMount(!mount)}>Mount/Unmount</button>
       { mount && <FuncLC/>} */}
       {/* <FuncLC/> */}
@@ -37,7 +39,13 @@ function App() {
       {/* {<ThemeToggle/>} */}
       {/* <UseReducerHook/> */}
       {/* <UseMemoHook/> */}
-      <UseCallbackHook/>
+      {/* <UseCallbackHook/> */}
+
+      {/* <Counter name={'ABC'}/>
+      <Hover/> */}
+      <Todo/>
+
+
     </div>
   );
 }
