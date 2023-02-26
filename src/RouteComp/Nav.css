@@ -1,0 +1,10 @@
+.inactiveClass {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+}
+
+.activeClass {
+  text-decoration: none;
+  color: coral;
+  background-color: rgb(56, 134, 202);
+}
